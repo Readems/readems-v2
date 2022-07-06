@@ -1,5 +1,5 @@
 import Content from '../components/Content';
-import { Container, Footer, Topbar } from './styles/S_Home';
+import { Container, Topbar } from './styles/S_Home';
 
 
 
@@ -16,10 +16,6 @@ const Home = () => {
         </Topbar>
         
         <Content /> {/* Page Content Component Rendered from |Content.js| */}
-
-        <Footer> {/* Page Footer */}
-          <p>&copy; 2022 Readems</p>
-        </Footer>
 
       </Container>
   )

@@ -1,10 +1,11 @@
 import { ContentWrapper, JoinList, Message, SocialIcons } from './styles/S_Content';
 import { ImInstagram, ImLinkedin2, ImFacebook, ImTwitter } from 'react-icons/im';
+import { Footer } from '../pages/styles/S_Home';
 import { useState } from 'react';
 import ThankYou from './ThankYou';
 
 const Content = () => {
-  // Check submition status 
+  const [isFocus, setIsFocus] = useState(false);
   const [success, setSuccess] = useState(false);
 
   // Handle form submition function 
@@ -28,7 +29,14 @@ const Content = () => {
         <JoinList> {/* Form Container */}
           <h3>Be the first to know when its time</h3>
           <form action="/#">
-            <input type="text" name="email" placeholder="Enter Email" required />
+            <input 
+              type="text" 
+              name="email" 
+              placeholder="Enter Email" 
+              required
+              onTouchEnd={() => setIsFocus(true)}
+              onBlur={() => setIsFocus(false)}
+            />
             <button onClick={handleSubmit} type="submit">Submit</button>
           </form>
         </JoinList>
@@ -44,6 +52,10 @@ const Content = () => {
       </ContentWrapper>
 
       <ThankYou thankYouDisplay={ success ? "block" : "none" } /> {/* Thank you component with display block style props if submition successful | Page is Rendered from |ThankYou.js| */}
+
+      <Footer> {/* Page Footer */}
+          { !isFocus && <p>&copy; 2022 Readems</p> }
+      </Footer>
     </>
   )
 }
