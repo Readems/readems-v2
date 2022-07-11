@@ -88,9 +88,14 @@ export const JoinList = styled.div`
     color: ${({ theme }) => theme.colors.black};
   }
 
-  & form {
+  & form > div {
     display: flex;
-    margin: 20px 0 50px 0;
+    margin: 20px 0 10px 0;
+  }
+  
+  & form > p {
+    margin: 0 0 50px 0;
+
   }
 
   & form input {
@@ -117,7 +122,7 @@ export const JoinList = styled.div`
   }
 
   @media (max-width: 500px) {
-    & form {
+    & form > div {
       flex-direction: column;
       align-items: center;
     }
@@ -131,6 +136,10 @@ export const JoinList = styled.div`
       padding: 20px;
       width: 150px;
       margin: 20px 0 0 0;
+    }
+
+    & form > p {
+      text-align: center;
     }
   }
 `;
