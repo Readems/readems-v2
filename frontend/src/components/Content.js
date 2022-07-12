@@ -19,7 +19,7 @@ const Content = () => {
     
     setProcessing(true); // set processing to true (form is submitting)
     try {
-      await axios.post('http://localhost:5000/api/users/waitlist', {email}) // post requiest to endpoint
+      await axios.post('/api/users/waitlist', {email}) // post requiest to endpoint
       setSuccess(true); // set success if successful
     } catch (err) {
       setError(err.response.data.error); // set error if any

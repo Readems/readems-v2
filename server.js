@@ -33,10 +33,12 @@ app.post('/api/users/waitlist', async (req, res) => {
 });
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('./frontend/build'));
+  // Serve static files 
+  app.use(express.static(path.join(__dirname, 'frontend/build')));
 
+  // Handling react routing: return every requests to react app 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
   })
 }
 
