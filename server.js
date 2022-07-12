@@ -12,7 +12,6 @@ app.use(cors());
 connectDB();
 
 app.get('/', (req, res) => {
-  // res.send('Hello world! This is coming soon page');
   res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
 })
 
